@@ -6,12 +6,16 @@
 /*   By: romgutie <romgutie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:10:03 by romgutie          #+#    #+#             */
-/*   Updated: 2025/11/13 14:10:03 by romgutie         ###   ########.fr       */
+/*   Updated: 2026/02/11 22:57:18 by romgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>
