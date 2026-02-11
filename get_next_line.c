@@ -6,7 +6,7 @@
 /*   By: romgutie <romgutie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 14:10:12 by romgutie          #+#    #+#             */
-/*   Updated: 2025/11/15 23:54:35 by romgutie         ###   ########.fr       */
+/*   Updated: 2026/02/11 23:01:56 by romgutie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ char	*read_and_stash(int fd, char *stash)
 			return (free_and_return(buffer, stash));
 		buffer[bytes] = '\0';
 		tmp = ft_strjoin(stash, buffer);
+		if (!tmp)
+			return (free_and_return(buffer, stash));
 		free(stash);
 		stash = tmp;
 		if (!stash || ft_strchr(stash, '\n'))
@@ -100,6 +102,12 @@ char	*get_next_line(int fd)
 	if (!stash)
 		return (NULL);
 	line = extract_line(stash);
+	if (!line)
+	{
+		free(stash);
+		stash = NULL;
+		return (NULL);
+	}
 	stash = clean_stash(stash);
 	return (line);
 }
